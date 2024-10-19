@@ -1,26 +1,35 @@
 function validateCruiseForm() {
-    const destination = $('#destination').val();
-    const departingDate = new Date($('#departing').val());
-    const minDuration = parseInt($('#minDuration').val());
-    const maxDuration = parseInt($('#maxDuration').val());
-    const guests = parseInt($('#cruiseGuests').val());
-    const startDate = new Date('2024-09-01');
-    const endDate = new Date('2024-12-01');
+  const destination = $("#destination").val();
+  const departingDate = new Date($("#departing").val());
+  const minDuration = parseInt($("#minDuration").val());
+  const maxDuration = parseInt($("#maxDuration").val());
 
-    if (departingDate < startDate || departingDate > endDate) {
-        alert('Departing date must be between Sep 1, 2024, and Dec 1, 2024.');
-        return;
-    }
+  // Get the values from the new fields without validation
+  const adults = parseInt($("#adults").val());
+  const children = parseInt($("#children").val());
+  const infants = parseInt($("#infants").val());
 
-    if (minDuration < 3 || maxDuration > 10 || minDuration > maxDuration) {
-        alert('Duration must be between 3 and 10 days.');
-        return;
-    }
+  const startDate = new Date("2024-09-01");
+  const endDate = new Date("2024-12-01");
 
-    if (guests > 2) {
-        alert('Each room can only have up to 2 guests. Infants can stay with adults.');
-        return;
-    }
+  if (departingDate < startDate || departingDate > endDate) {
+    alert("Departing date must be between Sep 1, 2024, and Dec 1, 2024.");
+    return;
+  }
 
-    alert(`Cruise search initiated for ${destination}!`);
+  if (minDuration < 3 || maxDuration > 10 || minDuration > maxDuration) {
+    alert("Duration must be between 3 and 10 days.");
+    return;
+  }
+
+  // Display all information in an alert
+  alert(`
+        Cruise Search Details:
+        Destination: ${destination}
+        Departing Date: ${departingDate.toLocaleDateString()}
+        Duration: ${minDuration} - ${maxDuration} Days
+        Adults: ${adults}
+        Children: ${children}
+        Infants: ${infants}
+    `);
 }

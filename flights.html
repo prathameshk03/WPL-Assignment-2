@@ -1,96 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flights</title>
-    <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="mystyle.css" />
     <script src="flight.js"></script>
     <script src="script.js"></script>
-</head>
-<body onload="displayDateTime()">
-
+  </head>
+  <body onload="displayDateTime()">
     <header>Welcome to Travel Deals - Flights</header>
 
     <div class="navbar">
-        <a href="index.html">Home</a>
+      <a href="index.html">Home</a>
+      <a href="stays.html">Stays</a>
+      <a href="flights.html">Flights</a>
+      <a href="cars.html">Cars</a>
+      <a href="cruises.html">Cruises</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+
+    <div class="container">
+      <div class="sidebar">
+        <h3>Explore</h3>
         <a href="stays.html">Stays</a>
         <a href="flights.html">Flights</a>
         <a href="cars.html">Cars</a>
         <a href="cruises.html">Cruises</a>
         <a href="contact.html">Contact Us</a>
-    </div>
 
-    <div class="container">
-        <div class="sidebar">
-            <h3>Explore</h3>
-            <a href="stays.html">Stays</a>
-            <a href="flights.html">Flights</a>
-            <a href="cars.html">Cars</a>
-            <a href="cruises.html">Cruises</a>
-            <a href="contact.html">Contact Us</a>
-        </div>
+        <!-- New section for changing font size -->
+        <h3>Settings</h3>
+        <label for="fontSize">Font Size:</label>
+        <input
+          type="number"
+          id="fontSize"
+          min="12"
+          max="36"
+          value="16"
+          onchange="changeFontSize()"
+          placeholder="Enter font size (px)"
+        />
 
-        <div class="main-content">
-            <p id="dateTime"></p>
-            <h2>Flights</h2>
-            <form id="flightForm" onsubmit="validateFlightForm(); return false;">
-                <label>Trip Type:</label>
-                <div>
-                    <span>
-                        <span>One-way</span>
-                        <span>
-                            <input type="radio" name="tripType" value="oneway" onclick="toggleReturnDate(false)" required>
-                        </span>
-                    </span>
-                    <span>
-                        <span>Round-trip</span>
-                        <span>
-                            <input type="radio" name="tripType" value="roundtrip" onclick="toggleReturnDate(true)" required>
-                        </span>
-                    </span>
-                </div>
-                
-                <label for="origin">Origin:</label>
-                <input type="text" id="origin" required><br>
+        <!-- New section for changing background color -->
+        <label for="bgColor">Background Color:</label>
+        <input type="color" id="bgColor" onchange="changeBgColor()" />
+      </div>
 
-                <label for="destination">Destination:</label>
-                <input type="text" id="destination" required><br>
+      <div class="main-content">
+        <p id="dateTime"></p>
+        <h2>Flights</h2>
+        <form id="flightForm" onsubmit="validateFlightForm(); return false;">
+          <label>Trip Type:</label>
+          <div>
+            <span>
+              <span>One-way</span>
+              <span>
+                <input
+                  type="radio"
+                  name="tripType"
+                  value="oneway"
+                  onclick="toggleReturnDate(false)"
+                  required
+                />
+              </span>
+            </span>
+            <span>
+              <span>Round-trip</span>
+              <span>
+                <input
+                  type="radio"
+                  name="tripType"
+                  value="roundtrip"
+                  onclick="toggleReturnDate(true)"
+                  required
+                />
+              </span>
+            </span>
+          </div>
 
-                <label for="departureDate">Departure Date:</label>
-                <input type="date" id="departureDate" required><br>
+          <label for="origin">Origin:</label>
+          <input type="text" id="origin" name="origin" required /><br />
 
-                <div id="returnDateContainer" style="display:none;">
-                    <label for="returnDate">Return Date:</label><br>
-                    <input type="date" id="returnDate" style="width: 97%;"><br>
-                </div>
+          <label for="destination">Destination:</label>
+          <input
+            type="text"
+            id="destination"
+            name="destination"
+            required
+          /><br />
 
-                <!-- Passenger Icon -->
-                <div id="passengerIcon" onclick="showPassengerForm()">
-                    <img src="passenger.png" alt="Passenger Icon" style="width:30px;height:30px;cursor:pointer;">
-                    <span>Add Passengers</span>
-                </div>
+          <label for="departureDate">Departure Date:</label>
+          <input
+            type="date"
+            id="departureDate"
+            name="departureDate"
+            required
+          /><br />
 
-                <!-- Passenger Form (Initially Hidden) -->
-                <div id="passengerForm" style="display:none;">
-                    <label for="adults">Adults (Max 4):</label>
-                    <input type="number" id="adults" min="0" max="4" required><br>
+          <div id="returnDateContainer" style="display: none">
+            <label for="returnDate">Return Date:</label><br />
+            <input
+              type="date"
+              id="returnDate"
+              name="returnDate"
+              style="width: 97%"
+            /><br />
+          </div>
 
-                    <label for="children">Children (Max 4):</label>
-                    <input type="number" id="children" min="0" max="4" required><br>
+          <!-- Passenger Icon -->
+          <div id="passengerIcon" onclick="showPassengerForm()">
+            <img
+              src="passenger.png"
+              alt="Passenger Icon"
+              style="width: 30px; height: 30px; cursor: pointer"
+            />
+            <span>Add Passengers</span>
+          </div>
 
-                    <label for="infants">Infants (Max 4):</label>
-                    <input type="number" id="infants" min="0" max="4" required><br>
-                </div>
+          <!-- Passenger Form (Initially Hidden) -->
+          <div id="passengerForm" style="display: none">
+            <label for="adults">Adults (Max 4):</label>
+            <input
+              type="number"
+              id="adults"
+              name="adults"
+              min="0"
+              max="4"
+            /><br />
 
-                <button type="submit">Search</button>
-            </form>
-        </div>
+            <label for="children">Children (Max 4):</label>
+            <input
+              type="number"
+              id="children"
+              name="children"
+              min="0"
+              max="4"
+            /><br />
+
+            <label for="infants">Infants (Max 4):</label>
+            <input
+              type="number"
+              id="infants"
+              name="infants"
+              min="0"
+              max="4"
+            /><br />
+          </div>
+
+          <button type="submit">Search</button>
+        </form>
+      </div>
     </div>
 
     <div class="footer">
-        &copy; 2024 Travel Deals
+      Section Number: CS 6314.002<br />
+      Name: Dhairya Patel (NetID: ddp230000)<br />
+      Partner's Name: Prathamesh Kulkarni (NetID: pdk220001)<br />
+      Partner's Name: Harsh Rashmikant Patel (NetID: hxp230001)<br />
     </div>
-
-</body>
+  </body>
 </html>
