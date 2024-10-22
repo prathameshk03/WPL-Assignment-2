@@ -104,6 +104,7 @@ form label {
 form input[type="text"],
 form input[type="date"],
 form input[type="number"],
+form input[type="email"],
 form select {
   padding: 10px;
   font-size: 16px; /* Set default font size for input fields */
