@@ -41,6 +41,12 @@ function validateStayForm() {
   const children = parseInt(document.getElementById("children").value);
   const infants = parseInt(document.getElementById("infants").value);
 
+  // Ensure non-negative numbers for all fields
+  if (adults < 0 || children < 0 || infants < 0) {
+    alert("The number of adults, children, and infants must be non-negative.");
+    return;
+  }
+
   // Total guests excluding infants
   const totalGuests = adults + children;
 
@@ -86,4 +92,7 @@ function displayStayDetailsInAlert(
 
   // Show the alert with the formatted details
   alert(alertMessage);
+
+  // Reset the form after successful validation
+  document.getElementById("validateStayForm").reset();
 }

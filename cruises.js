@@ -22,6 +22,24 @@ function validateCruiseForm() {
     return;
   }
 
+  // Check if the number of adults is at least one
+  if (adults < 1) {
+    alert("At least one adult is required for booking.");
+    return;
+  }
+
+  // Ensure non-negative numbers for all fields
+  if (adults < 0 || children < 0 || infants < 0) {
+    alert("The number of adults, children, and infants must be non-negative.");
+    return;
+  }
+
+  // Total guests excluding infants
+  const totalGuests = adults + children;
+
+  // Calculate the number of rooms required
+  let roomsRequired = Math.ceil(totalGuests / 2);
+
   // Display all information in an alert
   alert(`
         Cruise Search Details:
@@ -31,5 +49,9 @@ function validateCruiseForm() {
         Adults: ${adults}
         Children: ${children}
         Infants: ${infants}
+        Total Rooms Required: ${roomsRequired}
     `);
+
+  // Reset the form after successful validation
+  document.getElementById("cruiseForm").reset();
 }
