@@ -44,4 +44,7 @@ function validateCarForm() {
     city.charAt(0).toUpperCase() + city.slice(1)
   }\nCar Type: ${carType}\nCheck-in Date: ${checkInDate.toDateString()}\nCheck-out Date: ${checkOutDate.toDateString()}`;
   alert(message);
+
+  // Reset the form after successful validation
+  document.getElementById("validateCarForm").reset();
 }
