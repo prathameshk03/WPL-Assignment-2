@@ -143,6 +143,7 @@ async function validateFlightForm() {
 
 // Function to search for flights based on input criteria
 function searchFlights(flights, origin, destination, date, totalPassengers) {
+  flightsContainer.innerHTML="<h3>Available Flights</h3>";
   const results = [];
   const searchDate = new Date(date);
 

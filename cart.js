@@ -96,6 +96,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const lastName = document.getElementById(`lastName${i}`).value;
       const dob = document.getElementById(`dob${i}`).value;
       const ssn = document.getElementById(`ssn${i}`).value;
+
+      // Validate input fields
+      if (!firstName || !lastName || !dob || !ssn) {
+        alert(`Please fill out all details for Passenger ${i}`);
+        return;
+      }
+
       passengers.push({ firstName, lastName, dob, ssn });
     }
   
@@ -105,7 +112,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Retrieve selected flights
     const selectedDepartingFlight = JSON.parse(localStorage.getItem('selectedDepartingFlight'));
     const selectedReturningFlight = JSON.parse(localStorage.getItem('selectedReturningFlight'));
-  
+    
+    // Check if flights are selected
+    if (selectedDepartingFlight) {
+        // Update the available seats for the departing flight
+        updateAvailableSeats(selectedDepartingFlight.flightId, totalPassengers);
+    }
+
+    if (selectedReturningFlight) {
+        // Update the available seats for the returning flight
+        updateAvailableSeats(selectedReturningFlight.flightId, totalPassengers);
+    }
+
     // Display booking summary
     const bookingDetails = document.getElementById('bookingDetails');
     bookingDetails.innerHTML = `
@@ -152,7 +170,23 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Show booking summary
     document.getElementById('bookingSummary').style.display = 'block';
-  
-    // TODO: Update XML file to reduce available seats (can be done using an additional server-side request)
   }
-  
+
+  function updateAvailableSeats(flightId, totalPassengers) {
+    const formData = new FormData();
+    formData.append('flightId', flightId);
+    formData.append('totalPassengers', totalPassengers);
+    formData.append('totalPrice', totalPrice)
+
+    fetch('updateSeats.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data); // Show success/failure message from PHP
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
