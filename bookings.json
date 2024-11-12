@@ -34,5 +34,199 @@
         "origin": "San Bernardino",
         "destination": "Dallas",
         "price": 249.07
+    },
+    {
+        "flight-id": "TXCA040",
+        "total-passengers": "3",
+        "departure-date": "2024-10-27",
+        "departure-time": "14:30",
+        "origin": "Dallas",
+        "destination": "San Bernardino",
+        "price": 205.14
+    },
+    {
+        "flight-id": "TXCA040",
+        "total-passengers": "2",
+        "departure-date": "2024-10-27",
+        "departure-time": "14:30",
+        "origin": "Dallas",
+        "destination": "San Bernardino",
+        "price": 205.14
+    },
+    {
+        "flight-id": "TXCA046",
+        "total-passengers": "2",
+        "departure-date": "2024-11-01",
+        "departure-time": "05:45",
+        "origin": "San Bernardino",
+        "destination": "Dallas",
+        "price": 249.07
+    },
+    {
+        "flight-id": "TXCA040",
+        "total-passengers": "1",
+        "total-price": "205.14",
+        "departure-date": "2024-10-27",
+        "departure-time": "14:30",
+        "origin": "Dallas",
+        "destination": "San Bernardino",
+        "price": 205.14,
+        "passengers": [
+            {
+                "firstName": "John",
+                "lastName": "Doe",
+                "dob": "2024-11-06",
+                "ssn": "12345678"
+            }
+        ]
+    },
+    {
+        "flight-id": "TXCA040",
+        "total-passengers": "3",
+        "total-price": "553.8779999999999",
+        "departure-date": "2024-10-27",
+        "departure-time": "14:30",
+        "origin": "Dallas",
+        "destination": "San Bernardino",
+        "price": 205.14,
+        "passengers": [
+            {
+                "firstName": "John",
+                "lastName": "Doe",
+                "dob": "2024-11-27",
+                "ssn": "12345678"
+            },
+            {
+                "firstName": "John",
+                "lastName": "Doe",
+                "dob": "2024-11-15",
+                "ssn": "12345678"
+            },
+            {
+                "firstName": "John",
+                "lastName": "Doe",
+                "dob": "2024-11-21",
+                "ssn": "12345678"
+            }
+        ]
+    },
+    {
+        "flight-id": "TXCA040",
+        "total-passengers": "4",
+        "total-price": "1135.525",
+        "departure-date": "2024-10-27",
+        "departure-time": "14:30",
+        "origin": "Dallas",
+        "destination": "San Bernardino",
+        "passengers": [
+            {
+                "firstName": "John",
+                "lastName": "Doe",
+                "dob": "2024-11-07",
+                "ssn": "12345678"
+            },
+            {
+                "firstName": "John",
+                "lastName": "Doe",
+                "dob": "2024-11-13",
+                "ssn": "12345678"
+            },
+            {
+                "firstName": "John",
+                "lastName": "Doe",
+                "dob": "2024-11-20",
+                "ssn": "12345678"
+            },
+            {
+                "firstName": "John",
+                "lastName": "Doe",
+                "dob": "2024-11-12",
+                "ssn": "12345678"
+            }
+        ]
+    },
+    {
+        "bookingNumber": "BOOK1731211132251",
+        "flight-id": "TXCA046",
+        "total-passengers": "3",
+        "total-price": "817.578",
+        "departure-date": "2024-11-01",
+        "departure-time": "05:45",
+        "origin": "San Bernardino",
+        "destination": "Dallas",
+        "passengers": [
+            {
+                "firstName": "John",
+                "lastName": "Doe",
+                "dob": "2024-11-06",
+                "ssn": "12345678"
+            },
+            {
+                "firstName": "John",
+                "lastName": "Doe",
+                "dob": "2024-11-21",
+                "ssn": "12345678"
+            },
+            {
+                "firstName": "John",
+                "lastName": "Doe",
+                "dob": "2024-11-27",
+                "ssn": "12345678"
+            }
+        ]
+    },
+    {
+        "bookingNumber": "BOOK1731215667424",
+        "flight-id": "TXCA040",
+        "total-passengers": "3",
+        "total-price": "817.578",
+        "departure-date": "2024-10-27",
+        "departure-time": "14:30",
+        "origin": "Dallas",
+        "destination": "San Bernardino",
+        "passengers": [
+            {
+                "firstName": "John",
+                "lastName": "Doe",
+                "dob": "2024-11-12",
+                "ssn": "12345678"
+            },
+            {
+                "firstName": "John",
+                "lastName": "Doe",
+                "dob": "2024-11-21",
+                "ssn": "12345678"
+            },
+            {
+                "firstName": "John",
+                "lastName": "Doe",
+                "dob": "2024-11-13",
+                "ssn": "12345678"
+            }
+        ]
+    },
+    {
+        "bookingNumber": "BOOK1731444521537",
+        "flight-id": "TXCA040",
+        "total-passengers": "2",
+        "total-price": "225.654",
+        "departure-date": "2024-10-27",
+        "departure-time": "14:30",
+        "origin": "Dallas",
+        "destination": "San Bernardino",
+        "passengers": [
+            {
+                "firstName": "John",
+                "lastName": "Doe",
+                "dob": "2024-11-06",
+                "ssn": "12345678"
+            },
+            {
+                "firstName": "John",
+                "lastName": "Doe",
+                "dob": "2024-11-12",
+                "ssn": "12345678"
+            }
+        ]
     }
 ]

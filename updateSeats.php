@@ -4,7 +4,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Retrieve data from the POST request
     $flightId = $_POST['flightId'];
     $totalPassengers = $_POST['totalPassengers'];
-    $totalPrice = $_POST['totalPrice'];
+    $totalPrice = $_POST['totalPrice']; // Retrieve totalPrice from POST data
+    $passengers = json_decode($_POST['passengers'], true); // Retrieve passengers array from POST data
+    $bookingNumber = $_POST['bookingNumber'];
 
     // Load the XML file
     $xml = simplexml_load_file('flights.xml');
@@ -36,13 +38,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Store the booking information to a JSON file
             $bookingInfo = [
+                'bookingNumber' => $bookingNumber,
                 'flight-id' => $flightId,
                 'total-passengers' => $totalPassengers,
+                'total-price' => $totalPrice, // Add totalPrice to booking info
                 'departure-date' => (string)$flight->{'departure-date'},
                 'departure-time' => (string)$flight->{'departure-time'},
                 'origin' => (string)$flight->{'origin'},
                 'destination' => (string)$flight->{'destination'},
-                'price' => $totalPrice
+                'passengers' => $passengers // Add passengers array to booking info
             ];
 
             // Load existing bookings from the JSON file (if any)

@@ -116,12 +116,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if flights are selected
     if (selectedDepartingFlight) {
         // Update the available seats for the departing flight
-        updateAvailableSeats(selectedDepartingFlight.flightId, totalPassengers);
+        updateAvailableSeats(selectedDepartingFlight.flightId,totalPassengers,localStorage.getItem('totalPrice'),passengers, bookingNumber);
     }
 
     if (selectedReturningFlight) {
         // Update the available seats for the returning flight
-        updateAvailableSeats(selectedReturningFlight.flightId, totalPassengers);
+        updateAvailableSeats(selectedReturningFlight.flightId,totalPassengers,localStorage.getItem('totalPrice'),passengers, bookingNumber);
     }
 
     // Display booking summary
@@ -172,21 +172,26 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('bookingSummary').style.display = 'block';
   }
 
-  function updateAvailableSeats(flightId, totalPassengers) {
-    const formData = new FormData();
-    formData.append('flightId', flightId);
-    formData.append('totalPassengers', totalPassengers);
-    formData.append('totalPrice', totalPrice)
+  function updateAvailableSeats(flightId, totalPassengers, totalPrice, passengers, bookingNumber) {
+    // Create POST request payload
+    const data = new FormData();
+    data.append('flightId', flightId);
+    data.append('totalPassengers', totalPassengers);
+    data.append('totalPrice', totalPrice);
+    data.append('passengers', JSON.stringify(passengers));
+    data.append('bookingNumber', bookingNumber);
 
+    // Send POST request to updateSeats.php
     fetch('updateSeats.php', {
         method: 'POST',
-        body: formData
+        body: data
     })
     .then(response => response.text())
-    .then(data => {
-        alert(data); // Show success/failure message from PHP
+    .then(result => {
+        alert(result);
     })
     .catch(error => {
         console.error('Error:', error);
+        alert('An error occurred while updating available seats.');
     });
 }
