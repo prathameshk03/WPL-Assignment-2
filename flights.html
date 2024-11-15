@@ -18,6 +18,7 @@
       <a href="cars.html">Cars</a>
       <a href="cruises.html">Cruises</a>
       <a href="contact.html">Contact Us</a>
+      <a href="cart.html">Cart</a>
     </div>
 
     <div class="container">
@@ -28,6 +29,7 @@
         <a href="cars.html">Cars</a>
         <a href="cruises.html">Cruises</a>
         <a href="contact.html">Contact Us</a>
+        <a href="cart.html">Cart</a>
 
         <!-- New section for changing font size -->
         <h3>Settings</h3>
@@ -79,16 +81,15 @@
             </span>
           </div>
 
-          <label for="origin">Origin:</label>
-          <input type="text" id="origin" name="origin" required /><br />
+          <label for="originCity">Origin City:</label>
+          <select id="origin">
+            <option value="" disabled selected>Select an origin city</option>
+          </select><br />
 
-          <label for="destination">Destination:</label>
-          <input
-            type="text"
-            id="destination"
-            name="destination"
-            required
-          /><br />
+          <label for="destinationCity">Destination City:</label>
+          <select id="destination">
+            <option value="" disabled selected>Select a destination city</option>
+          </select><br />
 
           <label for="departureDate">Departure Date:</label>
           <input
@@ -152,7 +153,7 @@
         </form>
 
         <!-- New section to display available flights -->
-        <div id="availableFlights" style="margin-top: 20px;">
+        <div id="availableFlights" style="margin-top: 20px">
           <div id="flightsContainer"></div>
         </div>
       </div>
